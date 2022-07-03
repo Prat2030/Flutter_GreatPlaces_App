@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../helpers/db_helper.dart';
 import '../models/place.dart';
 
 class GreatPlaces with ChangeNotifier {
@@ -18,6 +19,11 @@ class GreatPlaces with ChangeNotifier {
     );
     _items.add(newPlace);
     notifyListeners();
+    DBHelper.insert('places', {
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image!.path,
+    });
   }
   // void deletePlace(String id) {
   //   _items.removeWhere((place) => place.id == id);
