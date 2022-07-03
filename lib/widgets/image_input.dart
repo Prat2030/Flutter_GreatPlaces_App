@@ -21,9 +21,12 @@ class _ImageInputState extends State<ImageInput> {
     final picker = ImagePicker();
     final imageFile = await picker.pickImage(
       source: ImageSource.gallery,
-      // source: ImageSource.gallery, to directly take from the camera (but its currently not there).
+      // source: ImageSource.camera, to directly take from the camera (but its currently not there).
       maxWidth: 600,
     );
+    if (imageFile == null) {
+      return;
+    }
     setState(() {
       _storedImage = File(imageFile!.path);
     });
