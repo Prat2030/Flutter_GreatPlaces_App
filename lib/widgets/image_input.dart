@@ -15,6 +15,18 @@ class ImageInput extends StatefulWidget {
 class _ImageInputState extends State<ImageInput> {
   var _storedImage;
 
+  Future<void> _takePicture() async {
+    final picker = ImagePicker();
+    final imageFile = await picker.pickImage(
+      source: ImageSource.gallery,
+      // source: ImageSource.gallery, to directly take from the camera (but its currently not there).
+      maxWidth: 600,
+    );
+    setState(() {
+      _storedImage = File(imageFile!.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -44,7 +56,7 @@ class _ImageInputState extends State<ImageInput> {
           icon: Icon(Icons.camera),
           label: Text('Take Picture'),
           textColor: Theme.of(context).primaryColor,
-          onPressed: () {},
+          onPressed: _takePicture,
         ),
       ],
     );
