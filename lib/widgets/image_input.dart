@@ -11,7 +11,7 @@ class ImageInput extends StatefulWidget {
   final Function onSelectImage;
   ImageInput(this.onSelectImage);
   @override
-  State<ImageInput> createState() => _ImageInputState();
+  _ImageInputState createState() => _ImageInputState();
 }
 
 class _ImageInputState extends State<ImageInput> {
@@ -28,7 +28,7 @@ class _ImageInputState extends State<ImageInput> {
       return;
     }
     setState(() {
-      _storedImage = File(imageFile!.path);
+      _storedImage = File(imageFile.path);
     });
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(_storedImage.path);
@@ -61,11 +61,13 @@ class _ImageInputState extends State<ImageInput> {
         SizedBox(
           width: 10,
         ),
-        FlatButton.icon(
-          icon: Icon(Icons.camera),
-          label: Text('Take Picture'),
-          textColor: Theme.of(context).primaryColor,
-          onPressed: _takePicture,
+        Expanded(
+          child: FlatButton.icon(
+            icon: Icon(Icons.camera),
+            label: Text('Take Picture'),
+            textColor: Theme.of(context).primaryColor,
+            onPressed: _takePicture,
+          ),
         ),
       ],
     );
