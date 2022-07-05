@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 import '../helpers/db_helper.dart';
 import '../models/place.dart';
-import 'package:path_provider/path_provider.dart' as syspaths;
+// import 'package:path_provider/path_provider.dart' as syspaths;
 
 class GreatPlaces with ChangeNotifier {
   List<Place> _items = [];
 
-  List<Place> get items => [..._items];
+  List<Place> get items {
+    return [..._items];
+  }
 
   void addPlace(String pickedTitle, File? pickedImage) async {
     final newPlace = Place(
@@ -18,7 +20,7 @@ class GreatPlaces with ChangeNotifier {
       image: pickedImage,
       location: null,
     );
-    final appDir = await syspaths.getApplicationDocumentsDirectory();
+    // final appDir = await syspaths.getApplicationDocumentsDirectory();
     _items.add(newPlace);
     notifyListeners();
     DBHelper.insert('user_places', {
@@ -38,7 +40,7 @@ class GreatPlaces with ChangeNotifier {
   Future<void> fetchAndSetPlaces() async {
     final dataList = await DBHelper.getData('user_places');
     print(dataList);
-    final appDir = await syspaths.getApplicationDocumentsDirectory();
+    // final appDir = await syspaths.getApplicationDocumentsDirectory();
     _items = dataList
         .map(
           (item) => Place(

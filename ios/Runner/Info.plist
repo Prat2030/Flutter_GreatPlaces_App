@@ -28,6 +28,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>We need to take the picture</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need to get your loaction!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to get your loaction!</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to take the picture</string>
 	<key>UILaunchStoryboardName</key>

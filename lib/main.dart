@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         home: PlacesListScreen(),
         routes: {
-          '/add-place': (ctx) => AddPlaceScreen(),
+          AddPlaceScreen.routeName: (ctx) => AddPlaceScreen(),
         },
       ),
     );

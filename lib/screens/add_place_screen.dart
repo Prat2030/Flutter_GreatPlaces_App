@@ -7,14 +7,15 @@ import 'package:provider/provider.dart';
 
 import '../provider/great_places.dart';
 import '../widgets/image_input.dart';
+import '../widgets/location_input.dart';
 
 class AddPlaceScreen extends StatefulWidget {
-  AddPlaceScreen({Key? key}) : super(key: key);
+  // AddPlaceScreen({Key? key}) : super(key: key);
 
   static const routeName = '/add-place';
 
   @override
-  State<AddPlaceScreen> createState() => _AddPlaceScreenState();
+  _AddPlaceScreenState createState() => _AddPlaceScreenState();
 }
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
@@ -62,6 +63,8 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     height: 10,
                   ),
                   ImageInput(_selectImage),
+                  SizedBox(height: 10),
+                  LocationInput(),
                 ],
               ),
             ),

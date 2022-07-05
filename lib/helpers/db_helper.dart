@@ -19,8 +19,8 @@ class DBHelper {
     db.insert(
       table,
       data,
-      conflictAlgorithm: sql
-          .ConflictAlgorithm.replace, // Replace the old data with the new data.
+      conflictAlgorithm:
+          ConflictAlgorithm.replace, // Replace the old data with the new data.
     );
   }
 
